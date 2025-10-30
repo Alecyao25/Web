@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantonese Swear Words: Cultural Context & Meanings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .warning-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .intro p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background: #2a3a7c;
+            color: white;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .jyutping {
+            font-style: italic;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+        
+        .meaning {
+            margin: 1rem 0;
+        }
+        
+        .context {
+            background: #f0f4ff;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .severity {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .low {
+            background: #e6f7e9;
+            color: #2e7d32;
+        }
+        
+        .medium {
+            background: #fff8e1;
+            color: #f57c00;
+        }
+        
+        .high {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .cultural-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+        
+        .cultural-section h2 {
+            color: #1a2a6c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .cultural-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .point {
+            flex: 1;
+            min-width: 250px;
+            background: #f0f4ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .point i {
+            font-size: 1.5rem;
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        .quiz-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .option {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background: #f0f4ff;
+        }
+        
+        .option.selected {
+            background: #e3f2fd;
+            border-color: #1a2a6c;
+        }
+        
+        .quiz-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .correct {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .incorrect {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="warning-banner">
+        <i class="fas fa-exclamation-triangle"></i> 
+        This content is for educational purposes only. Swear words can be offensive and should be used with caution.
+    </div>
+    
+    <header>
+        <h1>Cantonese Swear Words</h1>
+        <p class="subtitle">Understanding the cultural context, meanings, and appropriate usage of Cantonese profanity</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>About Cantonese Profanity</h2>
+            <p>Cantonese, spoken in Guangdong province, Hong Kong, and Macau, has a rich and diverse vocabulary of swear words that reflect the culture, history, and social norms of its speakers.</p>
+            <p>Unlike English profanity which often revolves around sexual themes, Cantonese swear words frequently involve family members, animals, and supernatural beings. Understanding these terms provides insight into Cantonese culture and values.</p>
+            <p>This guide explores some common Cantonese swear words with their meanings, pronunciation, and cultural context.</p>
+        </section>
+        
+        <section class="cards-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Diu</h3>
+                    <div class="jyutping">/diu/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> To have sexual intercourse</p>
+                        <p><strong>Usage:</strong> Used as a general expletive similar to "f*ck" in English. Often the first word in compound swear phrases.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> Part of the "Five Great Curses" in Cantonese. Considered very vulgar and offensive in most contexts.
+                    </div>
+                    <div class="severity high">High Severity</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Gau</h3>
+                    <div class="jyutping">/gau/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> Dog</p>
+                        <p><strong>Usage:</strong> Used to insult someone by comparing them to a dog, implying they are contemptible or of low status.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> In Chinese culture, being called a dog is a serious insult as dogs are traditionally viewed as lowly animals.
+                    </div>
+                    <div class="severity medium">Medium Severity</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Zhong</h3>
+                    <div class="jyutping">/zung/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> To plant (as in farming)</p>
+                        <p><strong>Usage:</strong> Used to curse someone with misfortune or to wish that something bad happens to them.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> Reflects the agricultural roots of Chinese civilization. The idea is "planting" misfortune in someone's life.
+                    </div>
+                    <div class="severity medium">Medium Severity</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Hai</h3>
+                    <div class="jyutping">/hai/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> Female reproductive organ</p>
+                        <p><strong>Usage:</strong> Used similarly to "c*nt" in English, but can be even more offensive in Cantonese.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> Considered one of the most offensive words in Cantonese. Part of the "Five Great Curses."
+                    </div>
+                    <div class="severity high">High Severity</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Lan</h3>
+                    <div class="jyutping">/laan/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> Male reproductive organ</p>
+                        <p><strong>Usage:</strong> Used to call someone stupid or incompetent, similar to "d*ckhead" in English.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> Another of the "Five Great Curses." Using this word shows extreme anger or contempt.
+                    </div>
+                    <div class="severity high">High Severity</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Pok Gai</h3>
+                    <div class="jyutping">/pok gai/</div>
+                </div>
+                <div class="card-body">
+                    <div class="meaning">
+                        <p><strong>Literal Meaning:</strong> Fall on the street</p>
+                        <p><strong>Usage:</strong> A curse wishing someone would die homeless on the streets.</p>
+                    </div>
+                    <div class="context">
+                        <strong>Cultural Context:</strong> Reflects the fear of dying without a proper burial, which is important in Chinese culture.
+                    </div>
+                    <div class="severity medium">Medium Severity</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cultural-section">
+            <h2>Cultural Insights</h2>
+            <p>Cantonese profanity reveals much about Chinese cultural values and taboos. Understanding these can help avoid unintentional offense when interacting with Cantonese speakers.</p>
+            
+            <div class="cultural-points">
+                <div class="point">
+                    <i class="fas fa-users"></i>
+                    <h3>Family Importance</h3>
+                    <p>Many Cantonese swear words involve family members, reflecting the central importance of family in Chinese culture.</p>
+                </div>
+                
+                <div class="point">
+                    <i class="fas fa-history"></i>
+                    <h3>Ancestral Worship</h3>
+                    <p>Insults involving ancestors are particularly offensive due to the tradition of ancestral worship in Chinese culture.</p>
+                </div>
+                
+                <div class="point">
+                    <i class="fas fa-dragon"></i>
+                    <h3>Supernatural Beliefs</h3>
+                    <p>Some curses invoke ghosts or supernatural beings, reflecting traditional Chinese folk beliefs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="quiz-section">
+            <h2>Test Your Understanding</h2>
+            <p>Choose the most appropriate response for each situation:</p>
+            
+            <div class="quiz-question">
+                <p>1. Your Cantonese friend stubs their toe and shouts "Diu!" What are they most likely expressing?</p>
+                <div class="options">
+                    <div class="option" data-correct="true">Pain and frustration</div>
+                    <div class="option">Joy and excitement</div>
+                    <div class="option">Confusion</div>
+                    <div class="option">Hunger</div>
+                </div>
+                <div class="quiz-result"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>2. Which Cantonese swear word would be considered LEAST offensive in most contexts?</p>
+                <div class="options">
+                    <div class="option">Hai</div>
+                    <div class="option">Lan</div>
+                    <div class="option" data-correct="true">Gau</div>
+                    <div class="option">Diu</div>
+                </div>
+                <div class="quiz-result"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <p>3. Why are family-related insults particularly offensive in Cantonese culture?</p>
+                <div class="options">
+                    <div class="option">Because families are small</div>
+                    <div class="option" data-correct="true">Because family is centrally important</div>
+                    <div class="option">Because everyone knows each other's family</div>
+                    <div class="option">Because of language rules</div>
+                </div>
+                <div class="quiz-result"></div>
+            </div>
+            
+            <button id="check-answers" style="margin-top: 1rem; padding: 0.8rem 1.5rem; background: #1a2a6c; color: white; border: none; border-radius: 5px; cursor: pointer;">Check Answers</button>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Cantonese Swear Words: Cultural Context & Meanings</p>
+        <p>This website is for educational purposes only. Always be respectful when using language in any cultural context.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">&copy; 2023 Cantonese Language Education</p>
+    </footer>
+
+    <script>
+        // Quiz functionality
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.option').forEach(sibling => {
+                    sibling.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+        
+        document.getElementById('check-answers').addEventListener('click', function() {
+            document.querySelectorAll('.quiz-question').forEach(question => {
+                const selectedOption = question.querySelector('.option.selected');
+                const resultDiv = question.querySelector('.quiz-result');
+                
+                if (selectedOption) {
+                    if (selectedOption.hasAttribute('data-correct')) {
+                        resultDiv.textContent = "Correct! " + getExplanation(question);
+                        resultDiv.className = "quiz-result correct";
+                    } else {
+                        resultDiv.textContent = "Incorrect. " + getExplanation(question);
+                        resultDiv.className = "quiz-result incorrect";
+                    }
+                    resultDiv.style.display = 'block';
+                }
+            });
+        });
+        
+        function getExplanation(question) {
+            const questionText = question.querySelector('p').textContent;
+            if (questionText.includes("1.")) {
+                return "Diu is commonly used as a general expletive when experiencing pain or frustration.";
+            } else if (questionText.includes("2.")) {
+                return "While still offensive, 'Gau' (dog) is generally considered less severe than sexual swear words.";
+            } else if (questionText.includes("3.")) {
+                return "Family is centrally important in Chinese culture, making family-related insults particularly offensive.";
+            }
+            return "";
+        }
+    </script>
+</body>
+</html>
